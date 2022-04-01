@@ -1,0 +1,46 @@
+import * as React from 'react';
+
+import * as Accordion from '@radix-ui/react-accordion';
+
+import { ActiveLink } from '../../../../shared/components/ActiveLink';
+import * as S from './styled';
+
+export interface PageSectionsProps {
+  /**
+   * The content
+   */
+  sections: string[];
+}
+
+export const PageSections = (props: PageSectionsProps): JSX.Element => {
+  const { sections } = props;
+
+  return (
+    <S.PageSectionsRoot>
+      <Accordion.Root type="single" collapsible>
+        <Accordion.Item value="section">
+          <S.AccordionHeader>
+            <S.Heading>section</S.Heading>
+
+            <S.AccordionTrigger>
+              <S.Arrow size={20} />
+            </S.AccordionTrigger>
+          </S.AccordionHeader>
+
+          <S.AccordionContent>
+            <S.SectionList>
+              {sections.map((section, index) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <S.SectionListItem key={index}>
+                  <ActiveLink href={`/${section.split(' ').join('')}`}>
+                    <S.Section>{section}</S.Section>
+                  </ActiveLink>
+                </S.SectionListItem>
+              ))}
+            </S.SectionList>
+          </S.AccordionContent>
+        </Accordion.Item>
+      </Accordion.Root>
+    </S.PageSectionsRoot>
+  );
+};
