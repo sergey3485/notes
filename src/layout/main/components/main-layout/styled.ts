@@ -16,6 +16,7 @@ export const Container = styled.div({
 
 export const ContentContainer = styled.div({
   display: 'flex',
+  flexDirection: 'column',
   alignItems: 'flex-start',
   justifyContent: 'flex-start',
   width: '100%',

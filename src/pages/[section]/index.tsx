@@ -4,9 +4,10 @@ import { useRouter } from 'next/router';
 import { ExtendedNextPage } from '../../shared/types/extended-next-page';
 
 import { MainLayout } from '../../layout/main/components/main-layout';
-import { PageHeader } from '../../feature/components/page-header';
+import { PageHeader } from '../../features/notes/components/page-header';
+import { NotesList } from '../../features/notes/components/notes-list';
 
-import { saveToLocalStorage, readFromLocalStorage } from '../../shared/utils/storage';
+import { useSection } from '../../features/notes/hooks/use-section';
 
 const SectionPage: ExtendedNextPage = () => {
   const router = useRouter();
@@ -14,25 +15,28 @@ const SectionPage: ExtendedNextPage = () => {
   const { section } = router.query;
 
   const [inputValue, setInputValue] = React.useState('');
-  const [notes, setNotes] = React.useState<string[]>([]);
-
-  React.useEffect(() => {
-    saveToLocalStorage(section as string, JSON.stringify(notes));
-  }, [notes]);
+  const { notes, addNote } = useSection(section as string);
 
   const onChangeInputValue = (event: React.ChangeEvent<HTMLInputElement>) => setInputValue(event.currentTarget.value);
-  const addNote = (event: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) => {
+  const addNotes = (event: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
     if (!inputValue) {
       return;
     }
 
-    setNotes([...notes, inputValue]);
+    setInputValue('');
+    addNote(inputValue);
   };
+
   return (
     <>
-      <PageHeader inputValue={inputValue} onChangeInputValue={onChangeInputValue} addNote={addNote} />
+      <PageHeader inputValue={inputValue} onChangeInputValue={onChangeInputValue} addNote={addNotes} />
+      <NotesList notes={notes[section as string]} section={section as string} />
+      {/* {notes[section as string] && notes[section as string].map((note, index) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <div key={index}>{note}</div>
+      ))} */}
     </>
   );
 };
