@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import * as Accordion from '@radix-ui/react-accordion';
 
-import { ActiveLink } from '../../../../shared/components/ActiveLink';
+import { ActiveLink } from '../../../../shared/components/active-link';
 import * as S from './styled';
 
 export interface PageSectionsProps {
@@ -32,7 +32,7 @@ export const PageSections = (props: PageSectionsProps): JSX.Element => {
               {sections.map((section, index) => (
                 // eslint-disable-next-line react/no-array-index-key
                 <S.SectionListItem key={index}>
-                  <ActiveLink href={`/${section.split(' ').join('')}`}>
+                  <ActiveLink href={`/${section.split(' ').join('').toLowerCase()}`} global>
                     <S.Section>{section}</S.Section>
                   </ActiveLink>
                 </S.SectionListItem>

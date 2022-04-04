@@ -14,8 +14,10 @@ const SectionPage: ExtendedNextPage = () => {
 
   const { section } = router.query;
 
+  const curentSection = (section as string);
+
   const [inputValue, setInputValue] = React.useState('');
-  const { notes, addNote } = useSection(section as string);
+  const { notes, addNote } = useSection(curentSection);
 
   const onChangeInputValue = (event: React.ChangeEvent<HTMLInputElement>) => setInputValue(event.currentTarget.value);
   const addNotes = (event: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) => {
@@ -32,7 +34,7 @@ const SectionPage: ExtendedNextPage = () => {
   return (
     <>
       <PageHeader inputValue={inputValue} onChangeInputValue={onChangeInputValue} addNote={addNotes} />
-      <NotesList notes={notes[section as string]} section={section as string} />
+      <NotesList notes={notes[curentSection] ?? []} section={curentSection} />
       {/* {notes[section as string] && notes[section as string].map((note, index) => (
         // eslint-disable-next-line react/no-array-index-key
         <div key={index}>{note}</div>

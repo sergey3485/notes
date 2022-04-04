@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import { ActiveLink, ActiveLinkProps } from '../ActiveLink';
+import { ActiveLink, ActiveLinkProps } from '../active-link';
 
 export default {
   title: 'Design System/Atoms/ActiveLink',

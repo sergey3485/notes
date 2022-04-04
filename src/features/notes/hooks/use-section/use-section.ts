@@ -12,8 +12,8 @@ export const useSection = (sectionName: string): UseSectionValue => {
   const [notes, setNotes] = useSectionStorage({});
 
   const addNote = (newNote: string) => {
-    const sectionNotes = notes[sectionName] ?? [];
-    sectionNotes.push(newNote);
+    const sectionNotes = [...(notes[sectionName] ?? []), newNote];
+    // sectionNotes.push(newNote);
     setNotes((prev) => ({ ...prev, [sectionName]: sectionNotes }));
 
     console.log(notes);
