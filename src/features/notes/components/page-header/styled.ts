@@ -1,7 +1,7 @@
 // import styled from 'styled-components';
 import styled from '@emotion/styled';
 
-export const PageHeaderRoot = styled.form({
+export const PageHeaderRoot = styled.div({
   display: 'flex',
   width: '100%',
   alignItems: 'center',

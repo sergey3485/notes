@@ -1,30 +1,26 @@
 import * as React from 'react';
 import Link from 'next/link';
 
+import { NoteData } from '../../hooks/use-section';
 import * as S from './styled';
 
 export interface NotesListProps {
   /**
    * The content
    */
-  notes: string[];
-  section: string;
+  notes: NoteData[];
 }
 
 export const NotesList = (props: NotesListProps): JSX.Element => {
-  const {
-    notes,
-    section,
-  } = props;
+  const { notes } = props;
 
   return (
     <S.NotesListRoot>
-      {notes.map((note, index) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <S.NotesListItem key={index}>
-          <Link passHref href={`/${section}/${note}`}>
+      {notes.map((note) => (
+        <S.NotesListItem key={note.uuid}>
+          <Link passHref href={`/${note.section}/${note.uuid}`}>
             <S.NoteLink>
-              {note}
+              {note.title}
             </S.NoteLink>
           </Link>
         </S.NotesListItem>

@@ -9,14 +9,14 @@ export interface PageHeaderProps {
    */
   inputValue: string;
   onChangeInputValue: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  addNote: (event: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) => void;
+  addNote: () => void;
 }
 
 export const PageHeader = (props: PageHeaderProps): JSX.Element => {
   const { inputValue, onChangeInputValue, addNote } = props;
 
   return (
-    <S.PageHeaderRoot onSubmit={addNote}>
+    <S.PageHeaderRoot>
       <S.Input value={inputValue} onChange={onChangeInputValue} />
 
       <S.Button type="button" onClick={addNote}>
