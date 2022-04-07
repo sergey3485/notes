@@ -72,20 +72,6 @@ export const Breadcrumbs = React.forwardRef<HTMLDivElement, BreadcrumbsProps>((p
   );
 });
 
-// export interface CompletedBreadcrumbsProps {
-//   url: string;
-//   separator: string;
-// }
-// export const СompletedBreadcrumbs = React.forwardRef<HTMLDivElement, CompletedBreadcrumbsProps>((props, ref): JSX.Element => {
-//   const {
-//     url,
-//     separator,
-//   } = props;
-//   return (
-//     <div />
-//   );
-// });
-
 export {
   Breadcrumbs as Root,
   BreadcrumbsItem as Item,

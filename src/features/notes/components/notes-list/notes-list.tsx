@@ -1,14 +1,14 @@
 import * as React from 'react';
 import Link from 'next/link';
 
-import { NoteData } from '../../hooks/use-section';
+import { Note } from '../../hooks/use-section';
 import * as S from './styled';
 
 export interface NotesListProps {
   /**
    * The content
    */
-  notes: NoteData[];
+  notes: Note[];
 }
 
 export const NotesList = (props: NotesListProps): JSX.Element => {
