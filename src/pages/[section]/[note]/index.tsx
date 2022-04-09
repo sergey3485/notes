@@ -8,7 +8,7 @@ import { ExtendedNextPage } from '@/shared/types/extended-next-page';
 import { MainLayout } from '@/layout/main/components/main-layout';
 import { Note, useSection } from '@/features/notes/hooks/use-section';
 
-import { Breadcrumbs } from '@/features/notes/components/Breadcrumbs';
+import { Breadcrumbs } from '@/features/notes/components/breadcrumbs';
 import { NoteInfo } from '@/features/notes/components/note-info';
 
 export const NotePage: ExtendedNextPage = () => {

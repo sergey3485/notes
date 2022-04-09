@@ -20,7 +20,7 @@ export const ContentContainer = styled.div({
   alignItems: 'flex-start',
   justifyContent: 'flex-start',
   width: '100%',
-  padding: '64px 96px 64px 64px',
+  padding: 48,
 });
 
 export const LogoContainer = styled.div({

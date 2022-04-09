@@ -24,14 +24,14 @@ export const Breadcrumbs = (props: BreadcrumbsProps): JSX.Element => {
         <BreadcrumbsElement.Item>
           <NextLink href={`/${section}`} passHref>
             <BreadcrumbsElement.Link>
-              {section}
+              {section.toUpperCase()}
             </BreadcrumbsElement.Link>
           </NextLink>
         </BreadcrumbsElement.Item>
 
         <BreadcrumbsElement.Separator>/</BreadcrumbsElement.Separator>
 
-        <BreadcrumbsElement.Item>{note}</BreadcrumbsElement.Item>
+        <BreadcrumbsElement.Item>{note.toUpperCase()}</BreadcrumbsElement.Item>
       </BreadcrumbsElement.Root>
     </S.BreadcrumbsRoot>
   );

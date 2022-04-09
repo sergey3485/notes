@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import { Breadcrumbs, BreadcrumbsProps } from '../Breadcrumbs';
+import { Breadcrumbs, BreadcrumbsProps } from '../breadcrumbs';
 
 export default {
   title: 'features/components/Breadcrumbs',
