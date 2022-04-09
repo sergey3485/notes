@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { useRouter } from 'next/router';
 
-import { ExtendedNextPage } from '../../shared/types/extended-next-page';
+import { ExtendedNextPage } from '@/shared/types/extended-next-page';
 
-import { MainLayout } from '../../layout/main/components/main-layout';
-import { PageHeader } from '../../features/notes/components/page-header';
-import { NotesList } from '../../features/notes/components/notes-list';
+import { MainLayout } from '@/layout/main/components/main-layout';
+import { PageHeader } from '@/features/notes/components/page-header';
+import { NotesList } from '@/features/notes/components/notes-list';
 
-import { useSection } from '../../features/notes/hooks/use-section';
+import { useSection } from '@/features/notes/hooks/use-section';
 
 const SectionPage: ExtendedNextPage = () => {
   const router = useRouter();

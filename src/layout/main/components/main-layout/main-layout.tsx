@@ -1,7 +1,8 @@
 import * as React from 'react';
 
+import planetLogo from 'public/planet-logo.png';
 import { PageSections } from '../page-sections';
-import planetLogo from '../../../../../public/planet-logo.png';
+// import planetLogo from '../../../../../public/planet-logo.png';
 
 import * as S from './styled';
 

@@ -1,4 +1,3 @@
-import { title } from 'process';
 import createPersistedState from 'use-persisted-state';
 import { v4 as uuidV4 } from 'uuid';
 
@@ -34,8 +33,6 @@ export const useSection = (sectionName: string): UseSectionValue => {
       section: sectionName,
     }];
     setNotes((prev) => ({ ...prev, [sectionName]: sectionNotes }));
-
-    console.log(notes);
   };
 
   const changeNoteProperty = (property: string, newValue: string, noteId: string) => {

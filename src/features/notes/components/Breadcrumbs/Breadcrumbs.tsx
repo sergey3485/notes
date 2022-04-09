@@ -2,7 +2,7 @@ import * as React from 'react';
 import NextLink from 'next/link';
 
 import * as S from './styled';
-import * as BreadcrumbsElement from '../../../../shared/components/breadcrumbs';
+import * as BreadcrumbsElement from '@/shared/components/breadcrumbs';
 
 export interface BreadcrumbsProps {
   /**

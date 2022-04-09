@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import * as Accordion from '@radix-ui/react-accordion';
 
-import { ActiveLink } from '../../../../shared/components/active-link';
+import { ActiveLink } from '@/shared/components/active-link';
 import * as S from './styled';
 
 export interface PageSectionsProps {
