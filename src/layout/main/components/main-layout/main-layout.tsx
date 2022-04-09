@@ -1,8 +1,6 @@
 import * as React from 'react';
 
-import planetLogo from 'public/planet-logo.png';
 import { PageSections } from '../page-sections';
-// import planetLogo from '../../../../../public/planet-logo.png';
 
 import * as S from './styled';
 
@@ -22,7 +20,7 @@ export const MainLayout = (props: MainLayoutProps): JSX.Element => {
     <S.MainLayoutRoot>
       <S.Container>
         <S.LogoContainer>
-          <img alt="" src={planetLogo.src} width={64} height={64} />
+          <img alt="" src="/planet-logo.png" width={64} height={64} />
         </S.LogoContainer>
 
         <PageSections sections={sections} />
