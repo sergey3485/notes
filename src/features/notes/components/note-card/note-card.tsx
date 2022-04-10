@@ -1,0 +1,30 @@
+import * as React from 'react';
+import { Note } from '../../hooks/use-section';
+import { formatDate } from '@/shared/utils/time';
+
+import * as S from './styled';
+
+export interface NoteCardProps {
+  /**
+   * The content
+   */
+  note: Note;
+}
+
+export const NoteCard = (props: NoteCardProps): JSX.Element => {
+  const {
+    note,
+  } = props;
+
+  const noteContent = note.content ? `${note.content.slice(0, 50)}...` : '';
+
+  const date = formatDate(note.date).split(' ').reverse().join(' ');
+
+  return (
+    <S.NoteCardRoot>
+      <S.NoteDateCreation>{date.toUpperCase()}</S.NoteDateCreation>
+      <S.NoteTitle>{note.title}</S.NoteTitle>
+      <S.NoteContent>{noteContent}</S.NoteContent>
+    </S.NoteCardRoot>
+  );
+};

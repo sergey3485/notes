@@ -7,12 +7,17 @@ export const NotesListRoot = styled.div({
   height: '100%',
   flexDirection: 'column',
   alignItems: 'flex-start',
+  width: '100%',
 });
 
 export const NotesListItem = styled.li({
   display: 'flex',
+  width: '100%',
 });
 
 export const NoteLink = styled.a({
   textDecoration: 'none',
+  color: 'black',
+  width: '100%',
+
 });

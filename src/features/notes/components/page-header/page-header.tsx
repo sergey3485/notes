@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { RiAddBoxLine } from 'react-icons/ri';
+import { IoIosAdd } from 'react-icons/io';
 import * as S from './styled';
 
 export interface PageHeaderProps {
@@ -17,10 +18,12 @@ export const PageHeader = (props: PageHeaderProps): JSX.Element => {
 
   return (
     <S.PageHeaderRoot>
-      <S.Input value={inputValue} onChange={onChangeInputValue} />
+      <S.Input value={inputValue} onChange={onChangeInputValue} placeholder="Find note" />
 
       <S.Button type="button" onClick={addNote}>
-        <RiAddBoxLine size={24} />
+        <S.SvgContainer>
+          <IoIosAdd size={36} />
+        </S.SvgContainer>
       </S.Button>
     </S.PageHeaderRoot>
   );

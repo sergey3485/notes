@@ -2,6 +2,7 @@ import * as React from 'react';
 import Link from 'next/link';
 
 import { Note } from '../../hooks/use-section';
+import { NoteCard } from '../note-card';
 import * as S from './styled';
 
 export interface NotesListProps {
@@ -20,7 +21,7 @@ export const NotesList = (props: NotesListProps): JSX.Element => {
         <S.NotesListItem key={note.uuid}>
           <Link passHref href={`/${note.section}/${note.uuid}`}>
             <S.NoteLink>
-              {note.title}
+              <NoteCard note={note} />
             </S.NoteLink>
           </Link>
         </S.NotesListItem>

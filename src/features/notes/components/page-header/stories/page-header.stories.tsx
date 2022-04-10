@@ -13,5 +13,5 @@ const Template: Story<PageHeaderProps> = (args) => <PageHeader {...args} />;
 export const Basic = Template.bind({});
 
 Basic.args = {
-  inputValue: 'PageHeader',
+  inputValue: '',
 };

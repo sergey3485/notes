@@ -5,11 +5,12 @@ export const MainLayoutRoot = styled.div({
   height: '100wh',
 });
 
-export const Container = styled.div({
+export const Sidebar = styled.div({
   display: 'flex',
   flexDirection: 'column',
   height: '100vh',
-  padding: 16,
+  width: 400,
+  padding: 32,
   borderRight: '1px solid',
   borderColor: '#D5D5D5',
 });

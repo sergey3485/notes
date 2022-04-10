@@ -16,9 +16,9 @@ export const PageSections = (props: PageSectionsProps): JSX.Element => {
   const { sections } = props;
 
   return (
-    <S.PageSectionsRoot>
-      <Accordion.Root type="single" collapsible>
-        <Accordion.Item value="section">
+    <Accordion.Root type="single" collapsible asChild>
+      <S.PageSectionsRoot>
+        <S.AccordionItem value="section">
           <S.AccordionHeader>
             <S.Heading>section</S.Heading>
 
@@ -39,8 +39,8 @@ export const PageSections = (props: PageSectionsProps): JSX.Element => {
               ))}
             </S.SectionList>
           </S.AccordionContent>
-        </Accordion.Item>
-      </Accordion.Root>
-    </S.PageSectionsRoot>
+        </S.AccordionItem>
+      </S.PageSectionsRoot>
+    </Accordion.Root>
   );
 };

@@ -3,16 +3,20 @@ import * as Accordion from '@radix-ui/react-accordion';
 import { RiArrowDownSLine } from 'react-icons/ri';
 
 export const PageSectionsRoot = styled.div({
+  width: '100%',
   display: 'flex',
-  padding: 16,
+});
+
+export const AccordionItem = styled(Accordion.AccordionItem)({
+  width: '100%',
 });
 
 export const AccordionHeader = styled(Accordion.AccordionHeader)({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  width: 325,
   height: 42,
+  width: '100%',
 });
 
 export const AccordionTrigger = styled(Accordion.AccordionTrigger)({
@@ -57,17 +61,20 @@ export const SectionList = styled.ul({
   height: '100%',
   flexDirection: 'column',
   alignItems: 'flex-start',
+  width: '100%',
 });
 
 export const SectionListItem = styled.li({
   display: 'flex',
+  width: '100%',
+  marginBottom: 4,
 });
 
 export const Section = styled.a<{ active?: boolean }>((props) => ({
   display: 'flex',
+  width: '100%',
   padding: '8px',
   alignItems: 'center',
-  justifyContent: 'center',
   textDecoration: 'none',
   cursor: 'pointer',
   fontSize: 18,

@@ -18,13 +18,13 @@ export const MainLayout = (props: MainLayoutProps): JSX.Element => {
 
   return (
     <S.MainLayoutRoot>
-      <S.Container>
+      <S.Sidebar>
         <S.LogoContainer>
           <img alt="" src="/planet-logo.png" width={64} height={64} />
         </S.LogoContainer>
 
         <PageSections sections={sections} />
-      </S.Container>
+      </S.Sidebar>
 
       <S.ContentContainer>{children}</S.ContentContainer>
     </S.MainLayoutRoot>

@@ -23,7 +23,7 @@ export const NotePage: ExtendedNextPage = () => {
 
   return (
     <>
-      <Breadcrumbs section={section as string} note={currentNote?.title ?? ''} />
+      <Breadcrumbs section={currentNote?.section ?? ''} note={currentNote?.title ?? ''} />
       <NoteInfo note={currentNote ?? {} as Note} />
     </>
   );
