@@ -1,46 +1,34 @@
 import * as React from 'react';
+import { RiAddBoxLine } from 'react-icons/ri';
 
-import * as Accordion from '@radix-ui/react-accordion';
-
+import * as colors from '@radix-ui/colors';
+import { useWorkspace } from '@/features/notes/hooks/use-workspace';
 import { ActiveLink } from '@/shared/components/active-link';
 import * as S from './styled';
 
-export interface PageSectionsProps {
-  /**
-   * The content
-   */
-  sections: string[];
-}
-
-export const PageSections = (props: PageSectionsProps): JSX.Element => {
-  const { sections } = props;
+export const PageSections = (): JSX.Element => {
+  const { workspaces, addWorkspace } = useWorkspace();
 
   return (
-    <Accordion.Root type="single" collapsible asChild>
-      <S.PageSectionsRoot>
-        <S.AccordionItem value="section">
-          <S.AccordionHeader>
-            <S.Heading>section</S.Heading>
+    <S.PageSectionsRoot>
+      <S.Header>
+        <S.Heading>Workspaces</S.Heading>
 
-            <S.AccordionTrigger>
-              <S.Arrow size={20} />
-            </S.AccordionTrigger>
-          </S.AccordionHeader>
+        <S.AddButton onClick={addWorkspace}>
+          <RiAddBoxLine size={20} color={colors.gray.gray9} />
+        </S.AddButton>
+      </S.Header>
 
-          <S.AccordionContent>
-            <S.SectionList>
-              {sections.map((section, index) => (
-                // eslint-disable-next-line react/no-array-index-key
-                <S.SectionListItem key={index}>
-                  <ActiveLink href={`/${section.split(' ').join('').toLowerCase()}`} global>
-                    <S.Section>{section}</S.Section>
-                  </ActiveLink>
-                </S.SectionListItem>
-              ))}
-            </S.SectionList>
-          </S.AccordionContent>
-        </S.AccordionItem>
-      </S.PageSectionsRoot>
-    </Accordion.Root>
+      <S.WorkspaceList>
+        {workspaces && workspaces.map((workspace, index) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <S.WorkspaceListItem key={index}>
+            <ActiveLink href={`/${workspace.uuid}`} global>
+              <S.Workspace>{workspace.title}</S.Workspace>
+            </ActiveLink>
+          </S.WorkspaceListItem>
+        ))}
+      </S.WorkspaceList>
+    </S.PageSectionsRoot>
   );
 };

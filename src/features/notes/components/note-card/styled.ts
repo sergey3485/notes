@@ -1,15 +1,26 @@
 import styled from '@emotion/styled';
 import * as colors from '@radix-ui/colors';
 
-export const NoteCardRoot = styled.div({
+export const NoteCardRoot = styled.a({
   display: 'flex',
   flexDirection: 'column',
   padding: 16,
   width: '100%',
   backgroundColor: colors.grayA.grayA1,
   borderRadius: '4px',
-  marginTop: 8,
-  marginBottom: 8,
+  transition: 'background-color 250ms ease',
+  textDecoration: 'none',
+  color: 'black',
+
+  '&:hover, &:focus': {
+    backgroundColor: colors.grayA.grayA2,
+  },
+});
+
+export const NoteLink = styled.a({
+  textDecoration: 'none',
+  color: 'black',
+  width: '100%',
 });
 
 export const NoteTitle = styled.span({

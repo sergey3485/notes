@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Note } from '../../hooks/use-section';
+import Link from 'next/link';
+import { Note } from '../../types/note-workspace-interfaces';
 import { formatDate } from '@/shared/utils/time';
 
 import * as S from './styled';
@@ -18,13 +19,15 @@ export const NoteCard = (props: NoteCardProps): JSX.Element => {
 
   const noteContent = note.content ? `${note.content.slice(0, 50)}...` : '';
 
-  const date = formatDate(note.date).split(' ').reverse().join(' ');
+  const date = note.date ? formatDate(note.date).split(' ').reverse().join(' ') : '';
 
   return (
-    <S.NoteCardRoot>
-      <S.NoteDateCreation>{date.toUpperCase()}</S.NoteDateCreation>
-      <S.NoteTitle>{note.title}</S.NoteTitle>
-      <S.NoteContent>{noteContent}</S.NoteContent>
-    </S.NoteCardRoot>
+    <Link passHref href={`/${note.workspace}/${note.uuid}`}>
+      <S.NoteCardRoot>
+        <S.NoteDateCreation>{date.toUpperCase()}</S.NoteDateCreation>
+        <S.NoteTitle>{note.title}</S.NoteTitle>
+        <S.NoteContent>{noteContent}</S.NoteContent>
+      </S.NoteCardRoot>
+    </Link>
   );
 };

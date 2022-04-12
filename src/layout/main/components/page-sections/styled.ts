@@ -1,17 +1,12 @@
 import styled from '@emotion/styled';
-import * as Accordion from '@radix-ui/react-accordion';
-import { RiArrowDownSLine } from 'react-icons/ri';
 
 export const PageSectionsRoot = styled.div({
   width: '100%',
   display: 'flex',
+  flexDirection: 'column',
 });
 
-export const AccordionItem = styled(Accordion.AccordionItem)({
-  width: '100%',
-});
-
-export const AccordionHeader = styled(Accordion.AccordionHeader)({
+export const Header = styled.div({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
@@ -19,7 +14,7 @@ export const AccordionHeader = styled(Accordion.AccordionHeader)({
   width: '100%',
 });
 
-export const AccordionTrigger = styled(Accordion.AccordionTrigger)({
+export const AddButton = styled.button({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -32,17 +27,6 @@ export const AccordionTrigger = styled(Accordion.AccordionTrigger)({
   margin: 0,
 });
 
-export const AccordionContent = styled(Accordion.AccordionContent)({
-  display: 'flex',
-});
-
-export const Arrow = styled(RiArrowDownSLine)({
-  color: '#242424',
-  opacity: 0.5,
-  transition: 'transform 300ms cubic-bezier(0.87, 0, 0.13, 1)',
-  '[data-state=open] &': { transform: 'rotate(180deg)' },
-});
-
 export const Heading = styled.span({
   fontSize: '16px',
   fontWeight: 500,
@@ -53,7 +37,7 @@ export const Heading = styled.span({
   opacity: 0.5,
 });
 
-export const SectionList = styled.ul({
+export const WorkspaceList = styled.ul({
   padding: 0,
   margin: 0,
   display: 'flex',
@@ -64,13 +48,13 @@ export const SectionList = styled.ul({
   width: '100%',
 });
 
-export const SectionListItem = styled.li({
+export const WorkspaceListItem = styled.li({
   display: 'flex',
   width: '100%',
   marginBottom: 4,
 });
 
-export const Section = styled.a<{ active?: boolean }>((props) => ({
+export const Workspace = styled.a<{ active?: boolean }>((props) => ({
   display: 'flex',
   width: '100%',
   padding: '8px',

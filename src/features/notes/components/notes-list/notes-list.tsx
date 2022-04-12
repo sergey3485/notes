@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 
-import { Note } from '../../hooks/use-section';
+import { Note } from '../../types/note-workspace-interfaces';
 import { NoteCard } from '../note-card';
 import * as S from './styled';
 
@@ -18,13 +18,9 @@ export const NotesList = (props: NotesListProps): JSX.Element => {
   return (
     <S.NotesListRoot>
       {notes.map((note) => (
-        <S.NotesListItem key={note.uuid}>
-          <Link passHref href={`/${note.section}/${note.uuid}`}>
-            <S.NoteLink>
-              <NoteCard note={note} />
-            </S.NoteLink>
-          </Link>
-        </S.NotesListItem>
+        <li>
+          <NoteCard note={note} key={note.uuid} />
+        </li>
       ))}
     </S.NotesListRoot>
   );

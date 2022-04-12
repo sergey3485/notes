@@ -13,6 +13,6 @@ const Template: Story<BreadcrumbsProps> = (args) => <Breadcrumbs {...args} />;
 export const Basic = Template.bind({});
 
 Basic.args = {
-  section: 'dashboard',
+  workspace: 'dashboard',
   note: 'Generale',
 };

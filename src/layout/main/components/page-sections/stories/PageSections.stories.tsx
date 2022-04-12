@@ -13,5 +13,5 @@ const Template: Story<PageSectionsProps> = (args) => <PageSections {...args} />;
 export const Basic = Template.bind({});
 
 Basic.args = {
-  sections: ['dashboard', 'scketches', 'shopping list'],
+  workspaces: ['dashboard', 'scketches', 'shopping list'],
 };

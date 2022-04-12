@@ -1,7 +1,7 @@
 import * as React from 'react';
-
+import * as colors from '@radix-ui/colors';
 import { RiAddBoxLine } from 'react-icons/ri';
-import { IoIosAdd } from 'react-icons/io';
+
 import * as S from './styled';
 
 export interface PageHeaderProps {
@@ -21,9 +21,7 @@ export const PageHeader = (props: PageHeaderProps): JSX.Element => {
       <S.Input value={inputValue} onChange={onChangeInputValue} placeholder="Find note" />
 
       <S.Button type="button" onClick={addNote}>
-        <S.SvgContainer>
-          <IoIosAdd size={36} />
-        </S.SvgContainer>
+        <RiAddBoxLine size={24} color={colors.gray.gray9} />
       </S.Button>
     </S.PageHeaderRoot>
   );

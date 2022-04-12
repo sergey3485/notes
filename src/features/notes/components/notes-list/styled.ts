@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const NotesListRoot = styled.div({
+export const NotesListRoot = styled.ul({
   padding: 0,
   margin: 0,
   display: 'flex',
@@ -8,16 +8,17 @@ export const NotesListRoot = styled.div({
   flexDirection: 'column',
   alignItems: 'flex-start',
   width: '100%',
-});
+  marginTop: 16,
+  listStyle: 'none',
 
-export const NotesListItem = styled.li({
-  display: 'flex',
-  width: '100%',
+  '& > li': {
+    width: '100%',
+    marginBottom: 16,
+  },
 });
 
 export const NoteLink = styled.a({
   textDecoration: 'none',
   color: 'black',
   width: '100%',
-
 });

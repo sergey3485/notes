@@ -23,7 +23,7 @@ export const MainLayout = (props: MainLayoutProps): JSX.Element => {
           <img alt="" src="/planet-logo.png" width={64} height={64} />
         </S.LogoContainer>
 
-        <PageSections sections={sections} />
+        <PageSections />
       </S.Sidebar>
 
       <S.ContentContainer>{children}</S.ContentContainer>

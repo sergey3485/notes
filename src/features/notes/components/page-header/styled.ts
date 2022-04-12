@@ -12,10 +12,10 @@ export const Input = styled.input({
   width: '100%',
   margin: 0,
   outline: 0,
-  // cursor: 'pointer',
   backgroundColor: 'transparent',
   padding: '6px 12px 6px 12px',
   border: '1px solid',
+  borderRadius: '4px',
   color: 'inherit',
   fontSize: 'inherit',
   borderColor: colors.grayA.grayA6,
@@ -33,19 +33,12 @@ export const Button = styled.button({
   padding: 0,
   border: 'none',
   background: 'none',
-  width: 48,
-  height: 48,
+  width: 40,
+  height: 40,
   borderRadius: '50%',
-  ':hover': {
+  transition: 'background-color 250ms ease',
+
+  '&:hover': {
     backgroundColor: colors.grayA.grayA3,
   },
-});
-
-export const SvgContainer = styled.div({
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  width: 28,
-  height: 28,
-  border: '1px solid black',
 });

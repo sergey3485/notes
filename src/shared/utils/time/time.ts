@@ -8,11 +8,13 @@ export const getCurrentDate = (): string => {
   return (dateFormat.format(date));
 };
 
-export const formatDate = (date: Date) => {
+export const formatDate = (date: Date | string) => {
   const dateFormat = new Intl.DateTimeFormat('en-US', {
     month: 'short',
     day: 'numeric',
   });
 
-  return (dateFormat.format(date));
+  const stringToDate = new Date(date);
+
+  return (dateFormat.format(stringToDate));
 };

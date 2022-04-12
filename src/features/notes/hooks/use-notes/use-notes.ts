@@ -1,16 +1,9 @@
 import createPersistedState from 'use-persisted-state';
 import { v4 as uuidV4 } from 'uuid';
-import { formatDate } from '@/shared/utils/time';
+import { baseNote, defaultWorkspace } from '../../constants/note-workspaces';
+import { Note } from '../../types/note-workspace-interfaces';
 
-const useSectionStorage = createPersistedState<Record<string, Note[]>>('sections');
-
-export interface Note {
-  uuid: string;
-  section: string;
-  title: string;
-  content: string;
-  date: Date;
-}
+const useNotesStorage = createPersistedState<Record<string, Note[]>>('notes');
 
 export interface UseSectionValue {
   notes: Record<string, Note[]>;
@@ -18,22 +11,15 @@ export interface UseSectionValue {
   changeNoteProperty: (property: string, newValue: string, noteId: string) => void;
 }
 
-const baseNote: Note = {
-  uuid: uuidV4(),
-  section: 'dashboard',
-  title: 'Generale',
-  content: 'Aenean maximus ullamcorper est, nec pretium dui dapibus ut. Nullam arcu tortor, dignissim id orci ac, vestibulum posuere ipsum. Suspendisse vel augue eget libero scelerisque euismod. Suspendisse vulputate erat id est ultrices, vel ultrices ligula ornare. Aliquam libero lacus, egestas eu arcu in, sodales pharetra ipsum. Nulla semper metus vel porttitor ornare. Praesent ultricies, justo ac volutpat rhoncus, nulla urna consectetur massa, a porttitor felis sapien at nibh.',
-  date: new Date(),
-};
-export const useSection = (sectionName: string): UseSectionValue => {
-  const [notes, setNotes] = useSectionStorage({ dashboard: [baseNote] });
+export const useNotes = (sectionName: string): UseSectionValue => {
+  const [notes, setNotes] = useNotesStorage({ [defaultWorkspace.uuid]: [baseNote] });
 
   const addNote = () => {
     const sectionNotes = [...(notes[sectionName] ?? []), {
       uuid: uuidV4(),
       title: 'new note',
       content: '',
-      section: sectionName,
+      workspace: sectionName,
       date: new Date(),
     }];
     setNotes((prev) => ({ ...prev, [sectionName]: sectionNotes }));

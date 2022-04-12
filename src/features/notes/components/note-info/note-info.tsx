@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Note } from '../../hooks/use-section';
+import { Note } from '../../types/note-workspace-interfaces';
 
 import * as S from './styled';
 
