@@ -23,22 +23,3 @@ export const Input = styled.input({
     borderColor: 'black',
   },
 });
-
-export const Button = styled.button({
-  display: 'flex',
-  cursor: 'pointer',
-  alignItems: 'center',
-  justifyContent: 'center',
-  marginLeft: 16,
-  padding: 0,
-  border: 'none',
-  background: 'none',
-  width: 40,
-  height: 40,
-  borderRadius: '50%',
-  transition: 'background-color 250ms ease',
-
-  '&:hover': {
-    backgroundColor: colors.grayA.grayA3,
-  },
-});

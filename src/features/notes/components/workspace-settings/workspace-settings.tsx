@@ -5,6 +5,7 @@ import * as colors from '@radix-ui/colors';
 import { Workspace } from '../../types/note-workspace-interfaces';
 
 import * as S from './styled';
+import { IconButton } from '@/shared/components/icon-button';
 
 export interface WorkspaceSettingsProps {
   /**
@@ -22,9 +23,9 @@ export const WorkspaceSettings = (props: WorkspaceSettingsProps): JSX.Element =>
     <S.WorkspaceSettingsRoot>
       <S.WorkspaceTitle>{workspace.title}</S.WorkspaceTitle>
 
-      <S.SettingsButton>
-        <RiSettings2Line size={24} color={colors.gray.gray9} />
-      </S.SettingsButton>
+      <IconButton>
+        <RiSettings2Line color={colors.gray.gray9} />
+      </IconButton>
     </S.WorkspaceSettingsRoot>
   );
 };

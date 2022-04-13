@@ -15,19 +15,3 @@ export const WorkspaceTitle = styled.span({
   lineHeight: '21px',
   letterSpacing: '0.02em',
 });
-
-export const SettingsButton = styled.button({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  width: 40,
-  height: 40,
-  margin: 0,
-  padding: 0,
-  border: 'none',
-  borderRadius: '50%',
-  background: 'none',
-  ':hover': {
-    backgroundColor: colors.grayA.grayA2,
-  },
-});

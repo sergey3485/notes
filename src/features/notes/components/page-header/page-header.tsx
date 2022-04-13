@@ -2,6 +2,8 @@ import * as React from 'react';
 import * as colors from '@radix-ui/colors';
 import { RiAddBoxLine } from 'react-icons/ri';
 
+import { IconButton } from '@/shared/components/icon-button';
+
 import * as S from './styled';
 
 export interface PageHeaderProps {
@@ -20,9 +22,9 @@ export const PageHeader = (props: PageHeaderProps): JSX.Element => {
     <S.PageHeaderRoot>
       <S.Input value={inputValue} onChange={onChangeInputValue} placeholder="Find note" />
 
-      <S.Button type="button" onClick={addNote}>
-        <RiAddBoxLine size={24} color={colors.gray.gray9} />
-      </S.Button>
+      <IconButton type="button" onClick={addNote}>
+        <RiAddBoxLine color={colors.gray.gray9} />
+      </IconButton>
     </S.PageHeaderRoot>
   );
 };
