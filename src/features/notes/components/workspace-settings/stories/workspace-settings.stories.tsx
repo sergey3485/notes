@@ -14,7 +14,7 @@ export const Basic = Template.bind({});
 
 Basic.args = {
   workspace: {
-    uuid: '1',
+    id: '1',
     title: 'Dashboard',
   },
 };

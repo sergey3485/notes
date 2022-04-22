@@ -19,10 +19,10 @@ export const NoteCard = (props: NoteCardProps): JSX.Element => {
 
   const noteContent = note.content ? `${note.content.slice(0, 50)}...` : '';
 
-  const date = note.date ? formatDate(note.date).split(' ').reverse().join(' ') : '';
+  const date = note.createdAt ? formatDate(note.createdAt).split(' ').reverse().join(' ') : '';
 
   return (
-    <Link passHref href={`/${note.workspace}/${note.uuid}`}>
+    <Link passHref href={`/${note.workspaceId}/${note.id}`}>
       <S.NoteCardRoot>
         <S.NoteDateCreation>{date.toUpperCase()}</S.NoteDateCreation>
         <S.NoteTitle>{note.title}</S.NoteTitle>

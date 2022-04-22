@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Link from 'next/link';
 
 import { Note } from '../../types/note-workspace-interfaces';
 import { NoteCard } from '../note-card';
@@ -18,8 +17,8 @@ export const NotesList = (props: NotesListProps): JSX.Element => {
   return (
     <S.NotesListRoot>
       {notes.map((note) => (
-        <li>
-          <NoteCard note={note} key={note.uuid} />
+        <li key={note.id}>
+          <NoteCard note={note} />
         </li>
       ))}
     </S.NotesListRoot>

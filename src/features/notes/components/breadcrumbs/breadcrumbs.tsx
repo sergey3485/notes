@@ -9,6 +9,7 @@ export interface BreadcrumbsProps {
    * The content
    */
   workspace: string;
+  workspaceId?: number;
   note: string;
 }
 
@@ -16,13 +17,14 @@ export const Breadcrumbs = (props: BreadcrumbsProps): JSX.Element => {
   const {
     workspace,
     note,
+    workspaceId,
   } = props;
 
   return (
     <S.BreadcrumbsRoot>
       <BreadcrumbsElement.Root>
         <BreadcrumbsElement.Item>
-          <NextLink href={`/${workspace}`} passHref>
+          <NextLink href={`/${workspaceId}`} passHref>
             <BreadcrumbsElement.Link>
               {workspace.toUpperCase()}
             </BreadcrumbsElement.Link>

@@ -1,12 +1,16 @@
 export interface Note {
-  uuid: string;
-  workspace: string;
+  id: number;
+  workspaceId: number;
+  workspace: {
+    title: string;
+  }
   title: string;
   content: string;
-  date: Date | string;
+  createdAt: Date | string;
 }
 
 export interface Workspace {
-  uuid: string;
+  id: number;
   title: string;
+  notes?: Note[];
 }

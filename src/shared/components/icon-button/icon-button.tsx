@@ -12,9 +12,10 @@ export interface IconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEl
 export const IconButton = (props: IconButtonProps): JSX.Element => {
   const {
     children,
+    ...other
   } = props;
 
   return (
-    <S.IconButtonRoot>{children}</S.IconButtonRoot>
+    <S.IconButtonRoot {...other}>{children}</S.IconButtonRoot>
   );
 };

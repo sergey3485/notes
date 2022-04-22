@@ -12,7 +12,7 @@ export interface PageHeaderProps {
    */
   inputValue: string;
   onChangeInputValue: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  addNote: () => void;
+  addNote: () => Promise<void>;
 }
 
 export const PageHeader = (props: PageHeaderProps): JSX.Element => {
