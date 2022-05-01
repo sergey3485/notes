@@ -1,27 +1,28 @@
 import * as React from 'react';
 import { RiAddBoxLine } from 'react-icons/ri';
 
+import {
+  useQuery,
+  useQueryClient,
+} from 'react-query';
+
 import * as colors from '@radix-ui/colors';
 
 import { ActiveLink } from '@/shared/components/active-link';
 import { Workspace } from '@/features/notes/types/note-workspace-interfaces';
-
-import { useWorkspaces } from '@/features/notes/hooks/useWorkspaces';
 import * as S from './styled';
 
 export const PageSections = (): JSX.Element => {
-  const [workspaces, setWorkspaces] = React.useState<Workspace[]>([]);
-
-  const fetchWorkspaces = async () => {
+  const queryClient = useQueryClient();
+  const query = useQuery(['workspaces'], async () => {
     const fetchedWorkspaces = await fetch('https://notios.herokuapp.com/workspaces');
-    setWorkspaces(await fetchedWorkspaces.json() as Workspace[]);
-  };
+    const data = await fetchedWorkspaces.json() as Workspace[];
+    return {
+      data,
+    };
+  });
 
-  React.useEffect(() => {
-    fetchWorkspaces()
-      .catch((error) => console.log(error));
-  }, []);
-  console.log(workspaces);
+  const workspaces = query.data?.data;
 
   const addWorkspace = async () => {
     await fetch('https://notios.herokuapp.com/workspaces', {
@@ -34,7 +35,7 @@ export const PageSections = (): JSX.Element => {
       }),
     });
 
-    await fetchWorkspaces();
+    await queryClient.invalidateQueries(['workspaces']);
   };
 
   return (
@@ -48,9 +49,9 @@ export const PageSections = (): JSX.Element => {
       </S.Header>
 
       <S.WorkspaceList>
-        {workspaces && workspaces.map((workspace, index) => (
+        {workspaces && workspaces.map((workspace) => (
           // eslint-disable-next-line react/no-array-index-key
-          <S.WorkspaceListItem key={index}>
+          <S.WorkspaceListItem key={workspace.id}>
             <ActiveLink href={`/${workspace.id}`} global>
               <S.Workspace>{workspace.title}</S.Workspace>
             </ActiveLink>

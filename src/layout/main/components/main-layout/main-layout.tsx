@@ -11,8 +11,6 @@ export interface MainLayoutProps {
   children?: React.ReactNode;
 }
 
-const sections = ['Dashboard', 'Sketches', 'Shopping List'];
-
 export const MainLayout = (props: MainLayoutProps): JSX.Element => {
   const { children } = props;
 

@@ -7,8 +7,6 @@ import {
 } from 'react-icons/ri';
 import * as colors from '@radix-ui/colors';
 import { useRouter } from 'next/router';
-import { useWorkspaces } from '@/features/notes/hooks/useWorkspaces';
-
 import { Workspace } from '../../types/note-workspace-interfaces';
 
 import { IconButton } from '@/shared/components/icon-button';
@@ -32,7 +30,6 @@ export const WorkspaceSettings = (props: WorkspaceSettingsProps): JSX.Element =>
 
   const [title, setTitle] = React.useState(workspace.title);
   const [isOpen, setIsOpen] = React.useState(false);
-  const { fetchWorkspaces } = useWorkspaces();
 
   const changeWorkspaceTitle = (event: React.ChangeEvent<HTMLInputElement>) => setTitle(event.currentTarget.value);
   const deleteWorkspace = async () => {
@@ -40,13 +37,11 @@ export const WorkspaceSettings = (props: WorkspaceSettingsProps): JSX.Element =>
       method: 'DELETE',
     });
 
-    await fetchWorkspaces();
     await router.push('/');
   };
 
   const saveTitle = async () => {
     await saveNewTitle(title);
-    await fetchWorkspaces();
     setIsOpen(false);
   };
 

@@ -2,6 +2,13 @@ import * as React from 'react';
 import { useRouter } from 'next/router';
 import { GetServerSideProps } from 'next';
 
+import {
+  dehydrate,
+  DehydratedState,
+  QueryClient,
+  useQuery,
+} from 'react-query';
+
 import { ExtendedNextPage } from '@/shared/types/extended-next-page';
 
 import { MainLayout } from '@/layout/main/components/main-layout';
@@ -15,33 +22,43 @@ export interface NotePageProps {
   noteData: Note;
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps<{ dehydratedState: DehydratedState }> = async (context) => {
   const { note } = context.query;
   const noteId = note as string;
-  const response = await fetch(`https://notios.herokuapp.com/notes/${noteId}`);
-  const noteData = await response.json() as Note;
+
+  const queryClient = new QueryClient();
+
+  await queryClient.fetchQuery(['note', noteId], async () => {
+    const response = await fetch(`https://notios.herokuapp.com/notes/${noteId}`);
+    const data = await response.json() as Note;
+    return {
+      data,
+    };
+  });
+
   return {
     props: {
-      noteData,
+      dehydratedState: dehydrate(queryClient),
     },
   };
 };
 
-export const NotePage: ExtendedNextPage<NotePageProps> = (props) => {
-  const { noteData } = props;
+export const NotePage: ExtendedNextPage = () => {
   const router = useRouter();
 
   const { note } = router.query;
   const noteId = note as string;
 
-  const [currentNote, setNote] = React.useState<Note | null>(noteData);
+  const query = useQuery([], async () => {
+    const response = await fetch(`https://notios.herokuapp.com/notes/${noteId}`);
+    const data = await response.json() as Note;
 
-  React.useEffect(() => {
-    fetch(`https://notios.herokuapp.com/notes/${noteId}`)
-      .then((data) => data.json() as Promise<Note>)
-      .then((data) => setNote(data))
-      .catch((error) => console.log(error));
-  }, [noteId]);
+    return {
+      data,
+    };
+  });
+
+  const currentNote = query.data?.data;
 
   return (
     <>
